@@ -1,0 +1,70 @@
+package com.example.testApi.Pedido.Model;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+public class Pedido {
+    private String numeroControle;
+    private LocalDate dataCadastro;
+    private String nome;
+    private BigDecimal valor;
+    private int quantidade;
+    private int codigoCliente;
+    private BigDecimal valorTotal;
+
+    public String getNumeroControle() {
+        return numeroControle;
+    }
+
+    public void setNumeroControle(String numeroControle) {
+        this.numeroControle = numeroControle;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public int getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+}
