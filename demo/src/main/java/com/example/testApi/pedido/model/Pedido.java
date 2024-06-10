@@ -1,4 +1,4 @@
-package com.example.testApi.Pedido.Model;
+package com.example.testApi.pedido.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

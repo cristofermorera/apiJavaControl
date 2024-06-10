@@ -1,7 +1,7 @@
-package com.example.testApi.Pedido.Dao;
+package com.example.testApi.pedido.dao;
 
 
-import com.example.testApi.Pedido.Model.Pedido;
+import com.example.testApi.pedido.model.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

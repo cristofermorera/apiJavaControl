@@ -1,7 +1,7 @@
-package com.example.testApi.Cliente.Controller;
+package com.example.testApi.cliente.controller;
 
-import com.example.testApi.Cliente.Model.Cliente;
-import com.example.testApi.Cliente.Service.ServiceCliente;
+import com.example.testApi.cliente.model.Cliente;
+import com.example.testApi.cliente.service.ServiceCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

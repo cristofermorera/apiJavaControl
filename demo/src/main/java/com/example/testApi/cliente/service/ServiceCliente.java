@@ -1,7 +1,7 @@
-package com.example.testApi.Cliente.Service;
+package com.example.testApi.cliente.service;
 
-import com.example.testApi.Cliente.Dao.ClienteDAO;
-import com.example.testApi.Cliente.Model.Cliente;
+import com.example.testApi.cliente.dao.ClienteDAO;
+import com.example.testApi.cliente.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.example.testApi.Pedido.Controller;
+package com.example.testApi.pedido.controller;
 
-import com.example.testApi.Pedido.Model.Pedido;
-import com.example.testApi.Pedido.Service.ServicePedido;
+import com.example.testApi.pedido.model.Pedido;
+import com.example.testApi.pedido.service.ServicePedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

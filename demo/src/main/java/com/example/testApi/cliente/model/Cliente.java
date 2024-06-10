@@ -1,4 +1,4 @@
-package com.example.testApi.Cliente.Model;
+package com.example.testApi.cliente.model;
 
 public class Cliente {
     private Long id;
