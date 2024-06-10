@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -35,9 +36,14 @@ public class ServicePedido {
         return pedidoRepository.buscarPorNumeroControle(numeroControle);
     }
 
-    public Pedido buscarPedidoPorIdCliente(String idCliente) {
+    public List<Pedido> buscarPedidoPorIdCliente(String idCliente) {
         return pedidoRepository.buscarPorIdCliente(idCliente);
     }
+
+    public List<Pedido> buscarPedidoPorDataCadastro(String dataCadastro) {
+        return pedidoRepository.buscarPorDataCadastro(dataCadastro);
+    }
+
     public Pedido validacao(Pedido pedido){
         if (pedidoRepository.existeNumeroControle(pedido.getNumeroControle())) {
             throw new RuntimeException("Número de controle já cadastrado");
@@ -58,21 +64,23 @@ public class ServicePedido {
         return pedido;
     }
 
-    public Pedido validacaoQuantidade(Pedido pedido){
-        if (pedido.getQuantidade() == 0) {
+    public Pedido validacaoQuantidade(Pedido pedido) {
+        if (pedido.getQuantidade() == null || pedido.getQuantidade() == 0) {
             pedido.setQuantidade(1);
         }
+
         validacaoTotal(pedido);
         return pedido;
     }
 
     public Pedido validacaoTotal(Pedido pedido){
-        BigDecimal valorTotal = pedido.getValor().multiply(BigDecimal.valueOf(pedido.getQuantidade()));
+        BigDecimal valorTotal = new BigDecimal(String.valueOf(pedido.getValor())).multiply(BigDecimal.valueOf(pedido.getQuantidade()));
         if (pedido.getQuantidade() > 5 && pedido.getQuantidade() < 10) {
             valorTotal = valorTotal.multiply(BigDecimal.valueOf(0.95));
         } else if (pedido.getQuantidade() >= 10) {
             valorTotal = valorTotal.multiply(BigDecimal.valueOf(0.90));
         }
+        pedido.setValorTotal(valorTotal.setScale(2, RoundingMode.HALF_EVEN));
         return pedido;
     }
 }

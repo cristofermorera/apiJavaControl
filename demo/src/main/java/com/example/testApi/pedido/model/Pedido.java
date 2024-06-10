@@ -8,7 +8,7 @@ public class Pedido {
     private LocalDate dataCadastro;
     private String nome;
     private BigDecimal valor;
-    private int quantidade;
+    private Integer quantidade;
     private int codigoCliente;
     private BigDecimal valorTotal;
 
@@ -36,11 +36,11 @@ public class Pedido {
         this.nome = nome;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 

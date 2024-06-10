@@ -26,12 +26,6 @@ public class ControllerPedidos {
         }
     }
 
-    /*@PostMapping
-    public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido) {
-        Pedido novoPedido = pedidoService.criarPedido(pedido);
-        return new ResponseEntity<>(novoPedido, HttpStatus.CREATED);
-    }*/
-
     @GetMapping
     public List<Pedido> listarPedidos() {
         return pedidoService.listarPedidos();
@@ -44,8 +38,14 @@ public class ControllerPedidos {
     }
 
     @GetMapping("/codigo_cliente/{idCliente}")
-    public ResponseEntity<Pedido> buscarPedidoPorIdCliente(@PathVariable String idCliente) {
-        Pedido pedido = pedidoService.buscarPedidoPorIdCliente(idCliente);
+    public ResponseEntity<List<Pedido>> buscarPedidoPorIdCliente(@PathVariable String idCliente) {
+        List<Pedido> pedido = pedidoService.buscarPedidoPorIdCliente(idCliente);
+        return new ResponseEntity<>(pedido, HttpStatus.OK);
+    }
+
+    @GetMapping("/data_cadastro/{dataCadastro}")
+    public ResponseEntity<List<Pedido>> buscarPedidoPorDataCadastro(@PathVariable String dataCadastro) {
+        List<Pedido> pedido = pedidoService.buscarPedidoPorDataCadastro(dataCadastro);
         return new ResponseEntity<>(pedido, HttpStatus.OK);
     }
 }

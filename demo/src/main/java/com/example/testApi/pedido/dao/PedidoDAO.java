@@ -38,9 +38,14 @@ public class PedidoDAO {
         return jdbcTemplate.queryForObject(sql, new Object[]{numeroControle}, this::mapRowToPedido);
     }
 
-    public Pedido buscarPorIdCliente(String idClient) {
+    public List<Pedido> buscarPorIdCliente(String idClient) {
         String sql = "SELECT * FROM pedido WHERE codigo_cliente = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{idClient}, this::mapRowToPedido);
+        return jdbcTemplate.query(sql, new Object[]{idClient}, this::mapRowToPedido);
+    }
+
+    public List<Pedido> buscarPorDataCadastro(String dataCadastro) {
+        String sql = "SELECT * FROM pedido WHERE data_cadastro = ?";
+        return jdbcTemplate.query(sql, new Object[]{dataCadastro}, this::mapRowToPedido);
     }
 
     private Pedido mapRowToPedido(ResultSet rs, int rowNum) throws SQLException {
