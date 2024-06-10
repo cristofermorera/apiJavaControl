@@ -52,6 +52,7 @@ public class ServicePedido {
         if (!clienteRepository.existeCliente(pedido.getCodigoCliente())) {
             throw new RuntimeException("Id do cliente é inválido");
         }
+
         validacaoData(pedido);
         return pedido;
     }
