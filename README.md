@@ -12,7 +12,7 @@ Esta é uma API para recepção e consulta de pedidos de clientes. A API suporta
 
 ## Tecnologias Utilizadas
 
-- Java 1.8 ou versão mais recente
+- Java 17
 - Spring Boot
 - JDBC Template
 - MySQL
@@ -23,7 +23,7 @@ Esta é uma API para recepção e consulta de pedidos de clientes. A API suporta
 
 ### Pré-requisitos
 
-- JDK 1.8 ou versão mais recente
+- JDK 17 ou versão mais recente
 - Maven
 - MySQL
 
@@ -36,13 +36,17 @@ CREATE DATABASE pedido_db;
 
 USE pedido_db;
 
+CREATE TABLE cliente (
+    codigo_cliente INT PRIMARY KEY
+);
+
 CREATE TABLE pedido (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    numero_controle VARCHAR(255) UNIQUE NOT NULL,
+    numero_controle VARCHAR(255) PRIMARY KEY,
     data_cadastro DATE,
-    nome VARCHAR(255) NOT NULL,
-    valor DECIMAL(10, 2) NOT NULL,
-    quantidade INT DEFAULT 1,
-    codigo_cliente INT NOT NULL,
-    valor_total DECIMAL(10, 2) NOT NULL
+    nome VARCHAR(255),
+    valor DECIMAL(10, 2),
+    quantidade INT,
+    codigo_cliente INT,
+    valor_total DECIMAL(10, 2),
+    FOREIGN KEY (codigo_cliente) REFERENCES cliente(codigo_cliente)
 );
